@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор строки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input::placeholder {
+            color: #999;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Генератор строки</h1>
+
+    <input type="text" id="russianInput" placeholder="ру">
+    <br>
+    <input type="text" id="englishInput" placeholder="eng">
+    <br>
+    <button onclick="generateString()">Сгенерировать строку</button>
+
+    <script>
+        function generateString() {
+            const russian = document.getElementById('russianInput').value;
+            const english = document.getElementById('englishInput').value;
+
+            if (russian && english) {
+                const resultString = `{russian: "${russian}", english: "${english}", correctAttempts: 0 },`;
+                navigator.clipboard.writeText(resultString).then(() => {
+                    alert('Строка скопирована в буфер обмена!');
+                }).catch(err => {
+                    console.error('Ошибка при копировании: ', err);
+                });
+            } else {
+                alert('Пожалуйста, заполните оба поля.');
+            }
+        }
+    </script>
+
+</body>
+</html>

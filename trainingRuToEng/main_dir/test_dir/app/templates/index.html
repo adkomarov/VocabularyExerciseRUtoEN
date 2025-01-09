@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка перевода</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Проверка перевода</h1>
+        <div id="word-container">
+            <p id="word">Случайное слово</p>
+        </div>
+        <div id="input-container">
+            <label for="translation">Перевод на английский:</label>
+            <input type="text" id="translation" placeholder="Введите перевод">
+            <button id="check-button">Проверить</button>
+        </div>
+        <div id="result-container">
+            <p id="result"></p>
+            <p id="correct-translation" style="display: none;"></p>
+        </div>
+        <div id="buttons-container" style="display: none;">
+            <button id="correct-button">Правильно</button>
+            <button id="incorrect-button">Неправильно</button>
+        </div>
+        <div id="final-message" style="display: none;">
+            <h2>Хорош, ультра хорош!</h2>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
